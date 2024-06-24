@@ -1,0 +1,45 @@
+.SearchContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 30dvw;
+    min-width: 625px;
+    max-width: 720px;
+    height: fit-content;
+    padding: 10px 30px;
+    background-color: #1F1F1F;
+    border-radius: 30px;
+}
+
+.SearchContainer > div {
+    height: 2.6rem;
+    min-height: 40px;
+    max-height: 60px;
+    align-items: start;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+}
+
+.SearchContainer > div > span {
+    font-size: 0.8rem;
+    color: white;
+}
+
+.SearchContainer > div > input {
+    font-size: 1rem;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    outline: none;
+    color: white;
+}
+
+.SearchContainer > div > button {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    outline: none;
+    color: white;
+}

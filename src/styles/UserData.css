@@ -1,0 +1,12 @@
+.UserDataContainer{
+    display: flex;
+    flex-direction: column;
+    width: 35dvw;
+    min-width: 720px;
+    max-width: 815px;
+    height: fit-content;
+    padding: 30px;
+    background-color: #1F1F1F;
+    color: white;
+    border-radius: 5px;
+}

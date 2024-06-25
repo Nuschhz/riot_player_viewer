@@ -5,8 +5,43 @@
     min-width: 720px;
     max-width: 815px;
     height: fit-content;
-    padding: 30px;
+    padding: 20px;
     background-color: #1F1F1F;
     color: white;
     border-radius: 5px;
+}
+.UserDataContainer > div {
+    display: flex;
+    flex-direction: row;
+}
+.UserProfile {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    font-size: 21px;
+    height: fit-content;
+}
+.UserProfile > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding: 0 15px;
+}
+.UserProfile > img {
+    justify-self: flex-start;
+    align-self: flex-start;
+    height: 128px;
+    width: 128px;
+}
+.UserRank{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.UserRank > img {
+    justify-self: flex-start;
+    align-self: flex-start;
+    height: 128px;
+    width: 128px;
 }

@@ -8,6 +8,7 @@ function App() {
     username: null,
     tagline: null,
     icon: null,
+    level: null,
     exist: false,
   });
 

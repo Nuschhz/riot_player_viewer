@@ -1,9 +1,20 @@
 import "../styles/GameSelector.css"
 
-export default function GameSelector({name, image, style, onMouseEnter, onMouseLeave}){
+import { useState } from "react"
+
+export default function GameSelector({name, image, color}){
+
+    const [backgroundColor, setBrackgroundColor] = useState({backgroundColor: "transparent"})
+
+    const handleMouseEnter = () => {
+        setBrackgroundColor({backgroundColor: color})
+    }
+    const handleMouseLeave = () => {
+        setBrackgroundColor({backgroundColor: "transparent"})
+    }
 
     return(
-        <div className="GameSelector" style={style} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <div className="GameSelector" style={backgroundColor} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <img src={image} alt={name} height={'45px'}></img>
         </div>
     )

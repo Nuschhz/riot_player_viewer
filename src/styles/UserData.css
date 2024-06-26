@@ -15,9 +15,10 @@
     flex-direction: row;
 }
 .UserProfile {
+    padding: 10px;
     display: flex;
     flex-direction: row;
-    width: 50%;
+    width: fit-content;
     font-size: 21px;
     height: fit-content;
 }

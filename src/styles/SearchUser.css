@@ -3,13 +3,13 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 30dvw;
-    min-width: 625px;
-    max-width: 720px;
+    width: 35dvw;
+    min-width: 690px;
+    max-width: 780px;
     height: fit-content;
     padding: 10px 30px;
     background-color: #1F1F1F;
-    border-radius: 30px;
+    border-radius: 8px;
     margin: 5dvh 0;
 }
 
@@ -37,8 +37,28 @@
     color: white;
 }
 
-.SearchContainer > div > button {
+.ServerButton{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
     background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    border: 0;
+    outline: none;
+    color: white;
+}
+
+.SearchButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 2.6rem;
+    background-color: transparent;
+    cursor: pointer;
     padding: 0;
     border: 0;
     outline: none;

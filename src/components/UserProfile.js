@@ -2,15 +2,19 @@ import '../styles/UserData.css'
 
 import { useContext } from "react"
 import { SearchContext } from "../context/SearchContext"
+import { ThemeContext } from '../context/ThemeContext'
 
 export default function UserProfile () {
 
     const {currentUser} = useContext(SearchContext)
+    const {theme} = useContext(ThemeContext)
+    
+    //colocar imagem do campeão
 
     return(
         <div className='UserDataContainer'>
                 <div>
-                <div className='UserProfile'>
+                <div className='UserProfile' style={{border: "solid",  borderImage: theme.gradientGold, backgroundColor: theme.background, color: theme.secondary}}>
                     <img src={currentUser.icon} alt={currentUser.username + 'icon'}/>
                     <div>
                         <span>
@@ -21,19 +25,15 @@ export default function UserProfile () {
                         </span>
                     </div>
                 </div>
-                <div className='UserRank'>
-                    <img src={currentUser.icon} alt={currentUser.username + 'icon'}/>
-                    <span>Elo Name</span>
-                    <span>LP</span>
-                </div>
+                
                 </div>
                 <div className='UserMasteries'>
-                    Champion
+                    {/* Champion
                     Mastery level
                     Champion
                     Mastery level
                     Champion
-                    Mastery level
+                    Mastery level */}
                 </div>
             </div>
     )

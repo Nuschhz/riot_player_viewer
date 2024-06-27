@@ -12,7 +12,6 @@
     border-radius: 8px;
     margin: 5dvh 0;
 }
-
 .SearchContainer > div {
     height: 2.6rem;
     min-height: 40px;
@@ -22,13 +21,11 @@
     display: flex;
     flex-direction: column;
 }
-
 .SearchContainer > div > span {
     font-size: 12px;
     color: white;
 }
-
-.SearchContainer > div > input {
+.SearchInput{
     font-size: 14px;
     background-color: transparent;
     border: 0;
@@ -36,7 +33,6 @@
     outline: none;
     color: white;
 }
-
 .ServerButton{
     display: flex;
     justify-content: space-between;
@@ -50,7 +46,6 @@
     outline: none;
     color: white;
 }
-
 .SearchButton{
     display: flex;
     justify-content: center;
@@ -63,4 +58,12 @@
     border: 0;
     outline: none;
     color: white;
+}
+.Tagline{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Tagline > span{
+    color: #5B5A56
 }

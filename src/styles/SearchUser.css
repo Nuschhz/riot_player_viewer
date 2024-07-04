@@ -8,8 +8,6 @@
     max-width: 780px;
     height: fit-content;
     padding: 10px 30px;
-    background-color: #1F1F1F;
-    border-radius: 8px;
     margin: 5dvh 0;
 }
 .SearchContainer > div {
@@ -23,7 +21,6 @@
 }
 .SearchContainer > div > span {
     font-size: 12px;
-    color: white;
 }
 .SearchInput{
     font-size: 14px;
@@ -31,7 +28,18 @@
     border: 0;
     padding: 0;
     outline: none;
-    color: white;
+}
+.SearchInput::-webkit-input-placeholder{
+    color: #5B5A56
+}
+.SearchInput:-moz-placeholder{
+    color: #5B5A56
+}
+.SearchInput::-moz-placeholder{
+    color: #5B5A56
+}
+.SearchInput:-ms-input-placeholder{
+    color: #5B5A56
 }
 .ServerButton{
     display: flex;
@@ -44,7 +52,6 @@
     padding: 0;
     border: 0;
     outline: none;
-    color: white;
 }
 .SearchButton{
     display: flex;
@@ -57,13 +64,9 @@
     padding: 0;
     border: 0;
     outline: none;
-    color: white;
 }
 .Tagline{
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.Tagline > span{
-    color: #5B5A56
 }

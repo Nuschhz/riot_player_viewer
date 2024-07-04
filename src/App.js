@@ -19,11 +19,13 @@ function App() {
     secondary: "#C8AA6E",
     background: "#010A13",
     displayColor: "#F0E6D2",
+    gray: "#5B5A56",
     gradientGold: "linear-gradient(30deg, #785A28, #C89B3C) 1/1px",
     gradientBlue: "linear-gradient(30deg, #005A82, #0AC8B9) 1/1px",
   })
 
   return (
+    
     <ThemeContextProvider value = {{theme, setTheme}}>
     <SearchContextProvider value={{currentUser, setCurrentUser}}>
       <Menu/>

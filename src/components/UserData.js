@@ -1,19 +1,14 @@
 import UserProfile from "./UserProfile";
 
-import { useContext } from "react"
-import { SearchContext } from "../context/SearchContext"
+import { useContext } from "react";
+import { SearchContext } from "../context/SearchContext";
 
-export default function UserData (){
+export default function UserData() {
+  const { currentUser } = useContext(SearchContext);
 
-    const {currentUser} = useContext(SearchContext)
+  const NoData = () => {
+    return <></>;
+  };
 
-    const NoData = () => {
-        return <></>
-    }
-
-    return(
-        <>
-        { currentUser.exist ? <UserProfile/> : <NoData/> }
-        </>
-    )
+  return <>{currentUser.exist ? <UserProfile /> : <NoData />}</>;
 }

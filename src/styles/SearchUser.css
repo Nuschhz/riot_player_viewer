@@ -22,6 +22,9 @@
 .SearchContainer > div > span {
     font-size: 12px;
 }
+.Dropdown{
+    width: 44px;
+}
 .SearchInput{
     font-size: 14px;
     background-color: transparent;
@@ -40,18 +43,6 @@
 }
 .SearchInput:-ms-input-placeholder{
     color: #5B5A56
-}
-.ServerButton{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    background-color: transparent;
-    cursor: pointer;
-    padding: 0;
-    border: 0;
-    outline: none;
 }
 .SearchButton{
     display: flex;

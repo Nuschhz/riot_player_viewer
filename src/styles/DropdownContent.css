@@ -1,0 +1,11 @@
+.DropdownContent{
+    position: absolute;
+}
+
+.content{
+    margin: 1px;
+    padding: 4px 8px ;
+}
+.content:hover{
+    cursor:pointer;
+}

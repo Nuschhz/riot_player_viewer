@@ -5,19 +5,17 @@ import axios from "axios";
 import { useState, useContext } from "react";
 import { SearchContext } from "../context/SearchContext";
 import { ThemeContext } from "../context/ThemeContext";
+import { LoadingContext } from "../context/LoadingContext";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronDown,
-  faChevronUp,
-  faSearch,
-} from "@fortawesome/fontawesome-free-solid";
+import { faSearch } from "@fortawesome/fontawesome-free-solid";
+import Dropdown from "./Dropdown";
 
 export default function SearchUser() {
-  const { setCurrentUser } = useContext(SearchContext);
+  const { currentUser, setCurrentUser } = useContext(SearchContext);
   const { theme } = useContext(ThemeContext);
+  const { setLoading } = useContext(LoadingContext);
 
-  const [isSelected, setIsSelected] = useState(false);
   const [server, setServer] = useState({
     serverName: "BR1",
     serverIndex: 0,
@@ -26,7 +24,33 @@ export default function SearchUser() {
   const [user, setUser] = useState("");
   const [tag, setTag] = useState("");
 
-  const servers = [];
+  const servers = [
+    {
+      serverName: "BR",
+      serverIndex: 0,
+      continentIndex: 0,
+    },
+    {
+      serverName: "NA",
+      serverIndex: 1,
+      continentIndex: 0,
+    },
+    {
+      serverName: "EUN",
+      serverIndex: 3,
+      continentIndex: 1,
+    },
+    {
+      serverName: "EUW",
+      serverIndex: 4,
+      continentIndex: 1,
+    },
+    {
+      serverName: "KR",
+      serverIndex: 5,
+      continentIndex: 2,
+    },
+  ];
 
   const getLeagueVersion = () =>
     axios
@@ -45,15 +69,19 @@ export default function SearchUser() {
         },
       })
       .then((res) => {
-        const profile = {
-          puuid: res.data.puuid,
-          username: user,
-          tagline: tag,
-          icon: `https://ddragon.leagueoflegends.com/cdn/${leagueVersion}/img/profileicon/${res.data.profileIconId}.png`,
-          level: res.data.summonerLevel,
-          exist: true,
-        };
-
+        let profile = {};
+        if (res.data.puuid !== undefined) {
+          profile = {
+            puuid: res.data.puuid,
+            username: user,
+            tagline: tag,
+            icon: `https://ddragon.leagueoflegends.com/cdn/${leagueVersion}/img/profileicon/${res.data.profileIconId}.png`,
+            level: res.data.summonerLevel,
+            exist: true,
+          };
+          return profile;
+        }
+        profile = { ...currentUser, exist: false };
         return profile;
       })
       .catch((err) => console.log(err));
@@ -148,6 +176,8 @@ export default function SearchUser() {
   };
 
   const handleCallUser = async () => {
+    setLoading(true);
+    setCurrentUser({ ...currentUser, searching: true });
     const leagueVersion = await getLeagueVersion();
     const userData = await getUserProfileData(leagueVersion);
     const championsList = await getChampionsList(leagueVersion);
@@ -163,9 +193,8 @@ export default function SearchUser() {
       mastery: { name: championNames, masteries: masteries },
       matches: userMatches,
     });
+    setLoading(false);
   };
-
-  const handleSelectServer = () => setIsSelected(!isSelected);
 
   return (
     <div
@@ -176,20 +205,9 @@ export default function SearchUser() {
         backgroundColor: theme.background,
       }}
     >
-      <div style={{ color: theme.displayColor }}>
+      <div style={{ color: theme.displayColor }} className="Dropdown">
         <span>Server</span>
-        <button
-          style={{ color: theme.displayColor }}
-          className="ServerButton"
-          onClick={handleSelectServer}
-        >
-          <span>{server.serverName}</span>
-          {isSelected ? (
-            <FontAwesomeIcon icon={faChevronDown} />
-          ) : (
-            <FontAwesomeIcon icon={faChevronUp} />
-          )}
-        </button>
+        <Dropdown server={server} setServer={setServer} servers={servers} />
       </div>
 
       <div style={{ color: theme.displayColor }}>

@@ -8,7 +8,6 @@ import { ThemeContext } from "../context/ThemeContext";
 import { LoadingContext } from "../context/LoadingContext";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/fontawesome-free-solid";
 import Dropdown from "./Dropdown";
 
 export default function SearchUser() {
@@ -16,41 +15,39 @@ export default function SearchUser() {
   const { theme } = useContext(ThemeContext);
   const { setLoading } = useContext(LoadingContext);
 
-  const [server, setServer] = useState({
-    serverName: "BR1",
-    serverIndex: 0,
-    continentIndex: 0,
-  });
   const [user, setUser] = useState("");
   const [tag, setTag] = useState("");
+
+  const continents = {
+    americas: 0,
+    europe: 1,
+    asia: 2,
+  };
 
   const servers = [
     {
       serverName: "BR",
       serverIndex: 0,
-      continentIndex: 0,
+      continentIndex: continents.americas,
     },
     {
       serverName: "NA",
       serverIndex: 1,
-      continentIndex: 0,
-    },
-    {
-      serverName: "EUN",
-      serverIndex: 3,
-      continentIndex: 1,
+      continentIndex: continents.americas,
     },
     {
       serverName: "EUW",
-      serverIndex: 4,
-      continentIndex: 1,
+      serverIndex: 2,
+      continentIndex: continents.europe,
     },
     {
       serverName: "KR",
-      serverIndex: 5,
-      continentIndex: 2,
+      serverIndex: 3,
+      continentIndex: continents.asia,
     },
   ];
+
+  const [server, setServer] = useState(servers[0]);
 
   const getLeagueVersion = () =>
     axios
@@ -64,7 +61,6 @@ export default function SearchUser() {
         params: {
           username: user,
           tagline: tag,
-          continent: server.continentIndex,
           server: server.serverIndex,
         },
       })
@@ -147,6 +143,7 @@ export default function SearchUser() {
   const getUserMatches = (userData, championsList, matches) => {
     let userLastPlayedGames = [];
     for (let i = 0; i < matches.length; i++) {
+      console.log(matches[i]);
       for (let j = 0; j < matches[i].info.participants.length; j++) {
         if (userData.puuid === matches[i].info.participants[j].puuid) {
           let championData = getChampionNamesForMatches(
@@ -200,9 +197,7 @@ export default function SearchUser() {
     <div
       className="SearchContainer"
       style={{
-        border: "solid",
-        borderImage: theme.gradientGold,
-        backgroundColor: theme.background,
+        backgroundColor: theme.gray01,
       }}
     >
       <div style={{ color: theme.displayColor }} className="Dropdown">
@@ -236,8 +231,16 @@ export default function SearchUser() {
       </div>
 
       <div>
-        <button className="SearchButton" onClick={handleCallUser}>
-          <FontAwesomeIcon icon={faSearch} color={theme.secondary} size="lg" />
+        <button
+          className="SearchButton"
+          onClick={handleCallUser}
+          style={{ backgroundColor: theme.primary }}
+        >
+          <FontAwesomeIcon
+            icon={"chevron-right"}
+            color={theme.displayColor}
+            size="lg"
+          />
         </button>
       </div>
     </div>

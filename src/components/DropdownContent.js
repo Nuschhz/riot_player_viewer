@@ -23,8 +23,7 @@ export default function DropdownContent({ servers, setServer, setIsSelected }) {
     <div
       className="DropdownContent"
       style={{
-        backgroundColor: theme.background,
-        borderImage: theme.gradientGold,
+        backgroundColor: theme.gray01,
       }}
     >
       {servers.map((item, index) => {

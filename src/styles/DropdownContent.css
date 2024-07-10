@@ -1,10 +1,12 @@
 .DropdownContent{
     position: absolute;
+    border-radius: 10px;
 }
 
 .content{
     margin: 1px;
-    padding: 4px 8px ;
+    padding: 4px 8px;
+    border-radius: 10px;
 }
 .content:hover{
     cursor:pointer;

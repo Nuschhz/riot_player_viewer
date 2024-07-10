@@ -9,7 +9,7 @@ export default function Header() {
     <header
       className="headerContainer"
       style={{
-        backgroundColor: theme.background,
+        backgroundColor: theme.primary,
         borderBottom: `1px solid ${theme.secondary}`,
         color: theme.displayColor,
       }}

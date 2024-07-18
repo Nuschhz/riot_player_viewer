@@ -33,7 +33,7 @@ export default function DropdownContent({ servers, setServer, setIsSelected }) {
             className="content"
             style={
               hover === index
-                ? { backgroundColor: theme.gray + "53" }
+                ? { backgroundColor: theme.gray00 + "53" }
                 : { backGroundColor: "transparent" }
             }
             onMouseEnter={() => handleMouseEnter(index)}

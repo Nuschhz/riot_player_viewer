@@ -17,17 +17,30 @@ function App() {
   });
 
   const [theme, setTheme] = useState({
-    primary: "#0ea5e9",
-    secondary: "#0ea5e9",
-    tertiary: "#E64646",
-    background: "#fafafa",
+    blue00: "#619DFF",
+    blue01: "#3b82f6",
+    gray00: "#a3a3a3",
+    gray01: "#171A1E",
+    background: "#020203",
     displayColor: "#f5f5f5",
-    darkGold: "#32281E",
-    gray01: "#404040",
-    gray: "#a3a3a3",
-    gradientRed: "linear-gradient(30deg, #550E0E, #E64646) 1/1px",
-    gradientGold: "linear-gradient(30deg, #785A28, #C89B3C) 1/1px",
-    gradientBlue: "linear-gradient(30deg, #005A82, #0AC8B9) 1/1px",
+    textColor: "#f5f5f5",
+    greenText00: "#0AC8B9",
+    greenText01: "#CDFAFA",
+    redText00: "#E64646",
+    redText01: "#FF9393",
+    grayText00: "#C2C2C2",
+    grayText01: "#EAEAEA",
+    backgroundGradient: "linear-gradient(to bottom, #0E1117E6, #020203)",
+    blueGradient: "linear-gradient(to bottom, #171A1EF2, #171A1EF2, #294A80)",
+    greenGradientFill: "linear-gradient(to right, #06060B, #06060B, #011B19B3)",
+    greenGradientStroke:
+      "linear-gradient(to right, #171A1EF2, #171A1EF2, #063935) 1/1px",
+    redGradientFill: "linear-gradient(to right, #06060B, #06060B, #1B0101B3)",
+    redGradientStroke:
+      "linear-gradient(to right, #171A1EF2, #171A1EF2, #511818) 1/1px",
+    grayGradientFill: "linear-gradient(to right, #06060B, #06060B, #1F1F1F99)",
+    grayGradientStroke:
+      "linear-gradient(to right, #171A1EF2, #171A1EF2, #64748499) 1/1px",
   });
 
   const [loading, setLoading] = useState(null);

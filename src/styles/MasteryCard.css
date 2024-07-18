@@ -1,46 +1,46 @@
+.MasteriesContainer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    width: fit-content;
+}
+.MasteriesTag{
+    font-size: 12px;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 5%;
+    border: 2px solid;
+    border-radius: 8px;
+}
 .UserMasteries{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    width: 100%;
-    height: fit-content;
+    height: 100%;
+    width: fit-content;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid;
 }
 .UserMastery{
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     position: relative;
-    border: solid 4px transparent;
-    border-radius: 60px;
-    background-image: linear-gradient(#010A13,#010A13), linear-gradient(30deg, #785A28, #C89B3C);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    width: 96px;
-    height: 96px;
 }
 .UserMastery > img{
-    border-radius: 60px;
-    width: 98px;
-    height: 98px;
+    width: 54px;
+    height: 54px;
+    margin-right: 8px;
 }
-.UserMasteryLevel{
+.MasteryStatus{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 85%;
-    min-width: fit-content;
-    padding: 0 10%;
-    border-radius: 12px;
-}
-.UserMasteryName{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 85%;
-    min-width: fit-content;
-    padding: 0 10%;
-    border-radius: 12px;
+    flex-direction: column;
 }

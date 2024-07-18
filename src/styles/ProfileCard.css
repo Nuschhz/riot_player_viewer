@@ -1,22 +1,57 @@
 .UserProfile {
-    padding: 10px;
     display: flex;
     flex-direction: row;
     width: fit-content;
-    max-width: 100%;
+    max-width: 60%;
     height: fit-content;
-    font-size: 21px;
 }
 .UserProfile > div{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    padding: 0 15px;
 }
-.UserProfile > img {
-    justify-self: flex-start;
-    align-self: flex-start;
-    height: 128px;
-    width: 128px;
+.IconCard {
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+    
+}
+.IconCard > img {
+    height: 15dvh;
+    width: 15dvh;
+    border: 2px solid;
+    border-radius: 8px;
+}
+.IconCard > span {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 5%;
+    border: 2px solid;
+    border-radius: 8px;
+}
+.ProfileTag{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: fit-content;
+    font-size: 1.25rem;
+    width: 285px;
+    height: 100%;
+    margin-left: 12px;
+}
+.NameTag{
+    display: flex;
+    flex-direction: row;
+    width: 285px;
+    min-width: fit-content;
+}
+.ServerTag{
+    border: 1px solid;
+    width: fit-content;
+    padding: 0 5%;
+    border-radius: 8px;
+    font-size: 0.875rem;
 }

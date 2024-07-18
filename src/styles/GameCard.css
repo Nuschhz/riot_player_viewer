@@ -1,14 +1,12 @@
-
 .GamesContainer{
     display: flex;
     flex-direction: column;
-    width: 85%;
+    width: 100%;
     height: 100%;
-    padding: 0 10px;
     overflow-y: scroll;
-    scrollbar-width: auto;
-    scrollbar-arrow-color: transparent transparent;
-}.CardContainer{
+    scrollbar-width: none;
+}
+.CardContainer{
     min-width: 100%;
     min-height: fit-content;
 }
@@ -18,14 +16,15 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    border-width: 0;
 }
 .GameCard > div{
     width: 100%;
-    padding: 5px;
 }
 .GameStats{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-size: bold;
     align-items: start;
 }

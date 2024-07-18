@@ -17,6 +17,7 @@ export default function SearchUser() {
 
   const [user, setUser] = useState("");
   const [tag, setTag] = useState("");
+  const [click, setClick] = useState(false);
 
   const continents = {
     americas: 0,
@@ -71,6 +72,7 @@ export default function SearchUser() {
             puuid: res.data.puuid,
             username: user,
             tagline: tag,
+            server: server.serverName,
             icon: `https://ddragon.leagueoflegends.com/cdn/${leagueVersion}/img/profileicon/${res.data.profileIconId}.png`,
             level: res.data.summonerLevel,
             exist: true,
@@ -142,34 +144,46 @@ export default function SearchUser() {
 
   const getUserMatches = (userData, championsList, matches) => {
     let userLastPlayedGames = [];
+    let wins = 0;
+    let games = 0;
     for (let i = 0; i < matches.length; i++) {
-      console.log(matches[i]);
-      for (let j = 0; j < matches[i].info.participants.length; j++) {
-        if (userData.puuid === matches[i].info.participants[j].puuid) {
-          let championData = getChampionNamesForMatches(
-            championsList,
-            matches[i].info.participants[j].championId
-          );
-          userLastPlayedGames.push({
-            champion: championData,
-            win: matches[i].info.participants[j].win,
-            kills: matches[i].info.participants[j].kills,
-            deaths: matches[i].info.participants[j].deaths,
-            assists: matches[i].info.participants[j].assists,
-            build: [
-              matches[i].info.participants[j].item0,
-              matches[i].info.participants[j].item1,
-              matches[i].info.participants[j].item2,
-              matches[i].info.participants[j].item3,
-              matches[i].info.participants[j].item4,
-              matches[i].info.participants[j].item5,
-              matches[i].info.participants[j].item6,
-            ],
-          });
+      if (matches[i].info.gameMode === "STRAWBERRY");
+      else {
+        for (let j = 0; j < matches[i].info.participants.length; j++) {
+          if (userData.puuid === matches[i].info.participants[j].puuid) {
+            if (matches[i].info.participants[j].win === true) {
+              wins++;
+            }
+            games++;
+            let championData = getChampionNamesForMatches(
+              championsList,
+              matches[i].info.participants[j].championId
+            );
+            userLastPlayedGames.push({
+              champion: championData,
+              win: matches[i].info.participants[j].win,
+              kills: matches[i].info.participants[j].kills,
+              deaths: matches[i].info.participants[j].deaths,
+              assists: matches[i].info.participants[j].assists,
+              duration: matches[i].info.gameDuration,
+              build: [
+                matches[i].info.participants[j].item0,
+                matches[i].info.participants[j].item1,
+                matches[i].info.participants[j].item2,
+                matches[i].info.participants[j].item3,
+                matches[i].info.participants[j].item4,
+                matches[i].info.participants[j].item5,
+                matches[i].info.participants[j].item6,
+              ],
+            });
+          }
         }
       }
     }
-    return userLastPlayedGames;
+    return {
+      winrate: { wins: wins, games: games },
+      matchesData: userLastPlayedGames,
+    };
   };
 
   const handleCallUser = async () => {
@@ -193,6 +207,18 @@ export default function SearchUser() {
     setLoading(false);
   };
 
+  const handleMouseDown = () => {
+    setClick(true);
+  };
+  const handleMouseUp = () => {
+    setClick(false);
+  };
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleCallUser();
+    }
+  };
+
   return (
     <div
       className="SearchContainer"
@@ -213,19 +239,21 @@ export default function SearchUser() {
           onChange={(e) => setUser(e.target.value)}
           maxLength={16}
           className="SearchInput"
+          onKeyDown={handleKeyDown}
         />
       </div>
 
       <div style={{ color: theme.displayColor }}>
         <span>Tagline</span>
         <div>
-          <span style={{ color: theme.gray }}>#</span>
+          <span style={{ color: theme.gray00 }}>#</span>
           <input
             style={{ color: theme.displayColor }}
             placeholder="Tagline"
             onChange={(e) => setTag(e.target.value)}
             maxLength={5}
             className="SearchInput"
+            onKeyDown={handleKeyDown}
           />
         </div>
       </div>
@@ -234,7 +262,14 @@ export default function SearchUser() {
         <button
           className="SearchButton"
           onClick={handleCallUser}
-          style={{ backgroundColor: theme.primary }}
+          style={
+            click
+              ? { backgroundColor: theme.blue00 }
+              : { backgroundColor: theme.blue01 }
+          }
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseUp}
+          onMouseUp={handleMouseUp}
         >
           <FontAwesomeIcon
             icon={"chevron-right"}

@@ -11,8 +11,8 @@ export default function Loading() {
       <div
         className="Spinner"
         style={{
-          border: `4px solid ${theme.darkGold}`,
-          borderTop: `4px solid ${theme.secondary}`,
+          border: `4px solid ${theme.gray01}`,
+          borderTop: `4px solid ${theme.blue01}`,
         }}
       />
     </div>

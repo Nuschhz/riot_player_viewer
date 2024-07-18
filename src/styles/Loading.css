@@ -1,9 +1,7 @@
 .LoadingContainer{
     display: flex;
     align-items: center;
-    min-height: 440px;
-    max-height: 500px;
-    height: 45dvh;
+    flex: 1;
 }
 
 @keyframes spin {

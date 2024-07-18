@@ -9,8 +9,8 @@
     max-width: 780px;
     height: fit-content;
     max-height: 60px;
-    padding: 10px 0 10px 30px; 
-    margin: 5dvh 0;
+    margin: 4dvh 0;
+    padding: 10px 0 10px 30px;
     border-radius: 32px;
 }
 .SearchContainer > div {

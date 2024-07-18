@@ -12,16 +12,39 @@ export default function ProfileCard() {
     <div
       className="UserProfile"
       style={{
-        border: "solid",
-        borderImage: theme.gradientGold,
-        backgroundColor: theme.background + "BF",
         color: theme.secondary,
       }}
     >
-      <img src={currentUser.icon} alt={currentUser.username + "icon"} />
+      <div className="IconCard">
+        <img
+          src={currentUser.icon}
+          alt={currentUser.username + "icon"}
+          style={{ borderColor: theme.blue01 }}
+        />
+        <span
+          style={{
+            fontSize: "12px",
+            color: theme.textColor,
+            borderColor: theme.blue01,
+            backgroundColor: theme.gray01,
+          }}
+        >
+          {currentUser.level}
+        </span>
+      </div>
       <div>
-        <span>{currentUser.username}</span>
-        <span style={{ fontSize: "16px" }}>Nível {currentUser.level}</span>
+        <div style={{ color: theme.textColor }} className="ProfileTag">
+          <span className="NameTag">
+            {currentUser.username}
+            <div style={{ color: theme.gray00 }}>#{currentUser.tagline}</div>
+          </span>
+          <span
+            style={{ color: theme.gray00, borderColor: theme.gray00 }}
+            className="ServerTag"
+          >
+            Server: {currentUser.server}
+          </span>
+        </div>
       </div>
     </div>
   );

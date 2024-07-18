@@ -9,45 +9,47 @@ export default function MasteryCard() {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div className="UserMasteries">
-      {currentUser.mastery.name.map((item, index) => {
-        return (
-          <div key={index}>
-            <div
-              className="UserMastery"
-              style={{
-                backgroundColor: theme.background,
-                border: `solid 2px ${theme.gradientGold}`,
-              }}
-            >
-              <img
-                src={`https://ddragon.leagueoflegends.com/cdn/14.13.1/img/champion/${item.championDataName}.png`}
-                alt={item}
-              />
-              <div
-                className="UserMasteryLevel"
-                style={{
-                  backgroundColor: theme.background,
-                  border: `solid 2px ${theme.secondary}`,
-                  color: theme.displayColor,
-                }}
-              >
-                {currentUser.mastery.masteries[index].championLevel}
-              </div>
-              <div
-                className="UserMasteryName"
-                style={{
-                  backgroundColor: theme.background,
-                  border: `solid 2px ${theme.secondary}`,
-                  color: theme.displayColor,
-                }}
-              >
-                {currentUser.mastery.name[index].championName}
+    <div className="MasteriesContainer" style={{ color: theme.textColor }}>
+      <div
+        className="MasteriesTag"
+        style={{ backgroundColor: theme.background, borderColor: theme.blue01 }}
+      >
+        Maestrias
+      </div>
+      <div
+        className="UserMasteries"
+        style={{
+          backgroundColor: theme.background + "80",
+          borderColor: theme.blue00,
+        }}
+      >
+        {currentUser.mastery.name.map((item, index) => {
+          return (
+            <div key={index}>
+              <div className="UserMastery">
+                <img
+                  src={`https://ddragon.leagueoflegends.com/cdn/14.13.1/img/champion/${item.championDataName}.png`}
+                  alt={item}
+                />
+                <div className="MasteryStatus">
+                  <span style={{ fontWeight: 500, color: theme.textColor }}>
+                    {currentUser.mastery.name[index].championName}
+                  </span>
+                  <span
+                    style={{
+                      fontWeight: 300,
+                      color: theme.gray00,
+                      fontSize: "14px",
+                    }}
+                  >
+                    Level: {currentUser.mastery.masteries[index].championLevel}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -9,12 +9,12 @@ export default function Header() {
     <header
       className="headerContainer"
       style={{
-        backgroundColor: theme.primary,
-        borderBottom: `1px solid ${theme.secondary}`,
+        backgroundColor: theme.blue01,
         color: theme.displayColor,
+        fontWeight: 200,
       }}
     >
-      SUMMONER PROFILE
+      SUMMONER.GG
     </header>
   );
 }

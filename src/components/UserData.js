@@ -20,7 +20,7 @@ export default function UserData() {
   };
 
   const NoData = () => {
-    return <></>;
+    return <div style={{ flex: 1 }}></div>;
   };
 
   return <>{currentUser.searching === false ? <NoData /> : <LoadUser />}</>;

@@ -1,0 +1,13 @@
+.WinrateContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 200px;
+}
+.WinrateTag{
+    padding: 0 5%;
+    border: 1px solid;
+    border-radius: 8px;
+    font-size: 12px;
+}

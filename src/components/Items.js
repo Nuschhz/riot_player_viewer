@@ -10,23 +10,41 @@ export default function Items({ index }) {
 
   return (
     <div className="ItemContainer">
-      {currentUser.matches[index].build.map((item, i) => {
-        return item === 0 ? null : (
+      {currentUser.matches.matchesData[index].build.map((item, i) => {
+        const matchesData = currentUser.matches.matchesData[index];
+        return item === 0 ? (
+          <div
+            key={i}
+            style={
+              matchesData.win
+                ? {
+                    height: "32px",
+                    width: "32px",
+                    borderRadius: "4px",
+                    backgroundColor: theme.background,
+                  }
+                : {
+                    height: "32px",
+                    width: "32px",
+                    borderRadius: "4px",
+                    backgroundColor: theme.background,
+                  }
+            }
+          />
+        ) : (
           <img
             key={i}
             src={`https://ddragon.leagueoflegends.com/cdn/14.13.1/img/item/${item}.png`}
             alt="item"
             style={
-              currentUser.matches[index].win
+              matchesData.win
                 ? {
-                    height: "22px",
-                    border: "solid",
-                    borderImage: theme.gradientBlue,
+                    height: "32px",
+                    borderRadius: "4px",
                   }
                 : {
-                    height: "22px",
-                    border: "solid",
-                    borderImage: theme.gradientRed,
+                    height: "32px",
+                    borderRadius: "4px",
                   }
             }
           />

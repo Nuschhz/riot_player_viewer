@@ -7,14 +7,15 @@ export default function UserNotFound() {
   return (
     <div
       style={{
-        color: theme.tertiary,
+        color: theme.redText00,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        flex: 1,
       }}
     >
       <div>Usuário não encontrado.</div>
-      <div>Verifique se os campos estão preenchidos corretamente.</div>
+      <div>Verifique se os campos foram preenchidos corretamente.</div>
     </div>
   );
 }

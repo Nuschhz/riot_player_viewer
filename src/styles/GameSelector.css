@@ -1,8 +1,0 @@
-.GameSelector{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 75px;
-    width: 75px;
-    transition: 200ms ease-in-out;
-}

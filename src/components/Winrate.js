@@ -7,7 +7,7 @@ import { ThemeContext } from "../context/ThemeContext";
 export default function Winrate() {
   const { currentUser } = useContext(SearchContext);
   const { theme } = useContext(ThemeContext);
-  console.log(currentUser);
+
   const winrate = currentUser.matches.winrate;
 
   const Circle = ({ color, percentage }) => {

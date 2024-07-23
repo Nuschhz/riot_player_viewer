@@ -34,7 +34,7 @@ export default function Items({ index }) {
         ) : (
           <img
             key={i}
-            src={`https://ddragon.leagueoflegends.com/cdn/14.13.1/img/item/${item}.png`}
+            src={`https://ddragon.leagueoflegends.com/cdn/${currentUser.version}/img/item/${item}.png`}
             alt="item"
             style={
               matchesData.win

@@ -9,6 +9,7 @@ import Scoreboard from "./Scoreboard";
 export default function GameCard() {
   const { currentUser } = useContext(SearchContext);
   const { theme } = useContext(ThemeContext);
+  console.log(currentUser);
 
   return (
     <div
@@ -44,7 +45,7 @@ export default function GameCard() {
               }
             >
               <img
-                src={`https://ddragon.leagueoflegends.com/cdn/14.13.1/img/champion/${matchesData.champion[0].championDataName}.png`}
+                src={`https://ddragon.leagueoflegends.com/cdn/${currentUser.version}/img/champion/${matchesData.champion[0].championDataName}.png`}
                 alt=""
                 style={{ height: "86px", margin: "12px" }}
               />

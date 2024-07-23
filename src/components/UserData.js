@@ -6,10 +6,12 @@ import { LoadingContext } from "../context/LoadingContext";
 
 import Loading from "./Loading";
 import UserNotFound from "./UserNotFound";
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function UserData() {
   const { currentUser } = useContext(SearchContext);
   const { loading } = useContext(LoadingContext);
+  const { theme } = useContext(ThemeContext);
 
   const Data = () => {
     return currentUser.exist ? <UserProfile /> : <UserNotFound />;
@@ -20,7 +22,11 @@ export default function UserData() {
   };
 
   const NoData = () => {
-    return <div style={{ flex: 1 }}></div>;
+    return (
+      <div style={{ flex: 1, color: theme.textColor }}>
+        Preencha os campos acima para buscar o perfil de outros jogadores
+      </div>
+    );
   };
 
   return <>{currentUser.searching === false ? <NoData /> : <LoadUser />}</>;

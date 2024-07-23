@@ -73,6 +73,7 @@ export default function SearchUser() {
             username: user,
             tagline: tag,
             server: server.serverName,
+            version: leagueVersion,
             icon: `https://ddragon.leagueoflegends.com/cdn/${leagueVersion}/img/profileicon/${res.data.profileIconId}.png`,
             level: res.data.summonerLevel,
             exist: true,

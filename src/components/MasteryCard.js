@@ -28,7 +28,7 @@ export default function MasteryCard() {
             <div key={index}>
               <div className="UserMastery">
                 <img
-                  src={`https://ddragon.leagueoflegends.com/cdn/14.13.1/img/champion/${item.championDataName}.png`}
+                  src={`https://ddragon.leagueoflegends.com/cdn/${currentUser.version}/img/champion/${item.championDataName}.png`}
                   alt={item}
                 />
                 <div className="MasteryStatus">

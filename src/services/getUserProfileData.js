@@ -8,11 +8,12 @@ export const getUserProfileData = (
   leagueVersion
 ) =>
   axios
-    .get("http://localhost:4000/SummonerProfile", {
+    .get(`https://riot-server.vercel.app/SummonerProfile`, {
       params: {
         username: user,
         tagline: tag,
         server: server.serverIndex,
+        apiKey: process.env.REACT_APP_RIOT_API,
       },
     })
     .then((res) => {

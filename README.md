@@ -3,8 +3,6 @@
 Thought of trying something new using the RiotAPI
 It retrieves lots of data to work with and it was pretty challenging.
 
-Check out the server that I made to treat the data and retrieve information from the RiotAPI to my website.
-
 ## Live Demo
 
 <https://riotplayerviewer-gustavo-silva-nuschs-projects.vercel.app>
@@ -19,3 +17,8 @@ Check out the server that I made to treat the data and retrieve information from
 ### API
 
 RiotAPI: <https://developer.riotgames.com>
+
+# Check out
+
+Check out my other project. A server that I made to work with the data and retrieve information from the RiotAPI to my website.
+<https://github.com/Nuschhz/riotServer>
